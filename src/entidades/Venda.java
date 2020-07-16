@@ -78,5 +78,27 @@ public class Venda {
 		return soma;
 	}
 	
+	@Override
+	public String toString() {
+		StringBuilder sb = new StringBuilder();
+		sb.append("Data.......: ");
+		sb.append(sdf.format(dataVenda) + "\n");
+		sb.append("Obs........: ");
+		sb.append(observacao+"\n");
+		sb.append("Status.....: ");
+		sb.append(status + "\n");
+		sb.append("Tipo pagto.: ");
+		sb.append(tipoPagamento);
+		sb.append("\n");
+		sb.append("------------------------------");
+		sb.append("\n");
+		for (ItemVenda item : itens) {
+			sb.append(item + "\n");			
+		}		
+		sb.append("------------------------------");
+		sb.append("\nTotal: $");
+		sb.append(String.format("%.2f", calculaTotal()));
+		return sb.toString();
+	}
 	
 }
